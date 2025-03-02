@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+{% include 'TitleComponent.html' with name="Compliance & Reporting" %}
+
+{% include 'ServiceComponent.html' with data=features name="Compliance And Reporting" desc="Stay ahead of the constantly evolving healthcare regulations with our compliance and reporting services" %}
+
+{% include 'ContactComponent.html' %}
+
+{% endblock content %}

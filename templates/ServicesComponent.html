@@ -1,0 +1,105 @@
+{% load static %}
+<section class="flex flex-col items-center text-center py-20 space-y-6 bg-gray-200">
+    <!-- Title Section -->
+    <span class="inline-block bg-[#0097B2] text-white px-9 py-2 rounded-full text-2xl font-semibold">
+        Services
+    </span>
+    <p class="text-gray-600 max-w-xl md:text-4xl text-xl font-semibold">
+        Medical and Health Care Solution
+    </p>
+
+    <!-- Cards Section -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full md:w-[90%] max-w-[100%] my-4 px-2">
+        
+        <!-- Credentialing Services -->
+        <a href="services/credentialing" class="h-full">
+            <div class="bg-white rounded-2xl shadow-lg py-10 px-6 flex flex-col items-center space-y-4 hover:bg-[#0097B2] hover:cursor-pointer hover:shadow-2xl transition-all h-full">
+                <div class="w-32 text-white flex items-center justify-center rounded-full text-xl font-bold">
+                    <img src="{% static 'assets/credentials.png' %}" class="w-1/2 h-full object-contain" loading="lazy" />
+                </div>
+                <div class="flex flex-col items-center justify-start h-full">
+                    <p class="text-2xl font-semibold my-2">Credentialing Services</p>
+                    <p class="text-gray-600 text-lg text-center my-2">
+                        Ensure your healthcare providers are credentialed with all major insurance networks, allowing them to be reimbursed for services rendered.
+                    </p>
+                </div>
+            </div>
+        </a>
+
+        <!-- Medical Coding -->
+        <a href="services/medical-coding" class="h-full">
+            <div class="bg-white rounded-2xl shadow-lg py-10 px-6 flex flex-col items-center space-y-4 hover:bg-[#0097B2] hover:cursor-pointer hover:shadow-2xl transition-all h-full">
+                <div class="w-32 text-white flex items-center justify-center rounded-full text-xl font-bold">
+                    <img src="{% static 'assets/medical.png' %}" class="w-1/2 h-full object-contain" loading="lazy" />
+                </div>
+                <div class="flex flex-col items-center justify-start h-full">
+                    <p class="text-2xl font-semibold my-2">Medical Coding</p>
+                    <p class="text-gray-600 text-lg text-center my-2">
+                        Accurate coding is crucial for ensuring proper reimbursement and compliance.
+                    </p>
+                </div>
+            </div>
+        </a>
+
+        <!-- Revenue Cycle Management -->
+        <a href="services/rcm" class="h-full">
+            <div class="bg-white rounded-2xl shadow-lg py-10 px-6 flex flex-col items-center space-y-4 hover:bg-[#0097B2] hover:cursor-pointer hover:shadow-2xl transition-all h-full">
+                <div class="w-32 text-white flex items-center justify-center rounded-full text-xl font-bold">
+                    <img src="{% static 'assets/cost.png' %}" class="w-1/2 h-full object-contain" loading="lazy" />
+                </div>
+                <div class="flex flex-col items-center justify-start h-full">
+                    <p class="text-2xl font-semibold my-2">Revenue Cycle Management</p>
+                    <p class="text-gray-600 text-lg text-center my-2">
+                        We manage every step of the revenue cycle, ensuring optimized cash flow for your practice.
+                    </p>
+                </div>
+            </div>
+        </a>
+
+        <!-- Billing and Follow Up Services -->
+        <a href="/services/billing" class="h-full">
+            <div class="bg-white rounded-2xl shadow-lg py-10 px-6 flex flex-col items-center space-y-4 hover:bg-[#0097B2] hover:cursor-pointer hover:shadow-2xl transition-all h-full">
+                <div class="w-32 text-white flex items-center justify-center rounded-full text-xl font-bold">
+                    <img src="{% static 'assets/bill.png' %}" class="w-1/2 h-full object-contain" loading="lazy" />
+                </div>
+                <div class="flex flex-col items-center justify-start h-full">
+                    <p class="text-2xl font-semibold my-2">Billing and Follow Up Services</p>
+                    <p class="text-gray-600 text-lg text-center my-2">
+                        Ensure that your practice gets paid in full and on time with our complete billing and follow-up services.
+                    </p>
+                </div>
+            </div>
+        </a>
+
+        <!-- Compliance And Reporting -->
+        <a href="/services/compliance-report" class="h-full">
+            <div class="bg-white rounded-2xl shadow-lg py-10 px-6 flex flex-col items-center space-y-4 hover:bg-[#0097B2] hover:cursor-pointer hover:shadow-2xl transition-all h-full">
+                <div class="w-32 text-white flex items-center justify-center rounded-full text-xl font-bold">
+                    <img src="{% static 'assets/clipboard.png' %}" class="w-1/2 h-full object-contain" loading="lazy" />
+                </div>
+                <div class="flex flex-col items-center justify-start h-full">
+                    <p class="text-2xl font-semibold my-2">Compliance And Reporting</p>
+                    <p class="text-gray-600 text-lg text-center my-2">
+                        Stay ahead of the constantly evolving healthcare regulations with our compliance and reporting services.
+                    </p>
+                </div>
+            </div>
+        </a>
+
+        <!-- Dental Services -->
+        <a href="/services/dental" class="h-full">
+            <div class="bg-white rounded-2xl shadow-lg py-10 px-6 flex flex-col items-center space-y-4 hover:bg-[#0097B2] hover:cursor-pointer hover:shadow-2xl transition-all h-full">
+                <div class="w-32 text-white flex items-center justify-center rounded-full text-xl font-bold">
+                    <img src="{% static 'assets/dental.png' %}" class="w-1/2 h-full object-contain" loading="lazy" />
+                </div>
+                <div class="flex flex-col items-center justify-start h-full">
+                    <p class="text-2xl font-semibold my-2">Dental</p>
+                    <p class="text-gray-600 text-lg text-center my-2">
+                        Our expert team ensures accurate, timely reimbursements, helping dental practices focus on patient care instead of paperwork.
+                    </p>
+                </div>
+            </div>
+        </a>
+
+    </div>
+</section>

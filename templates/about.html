@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- title component Section -->
+ {% include "TitleComponent.html" with name="About Us" %}
+
+<!-- About Us Section -->
+{% include 'AboutComponent.html' %}
+
+<!-- Medical Solution Section -->
+<section class="bg-[#F9F6F1] py-20 px-6 md:px-16">
+    <!-- Header -->
+    <div class="text-center">
+        <button class="bg-[#0097B2] text-white px-6 py-2 rounded-full text-xl font-semibold">
+            Medical Solutions
+        </button>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-4">
+            SKZ <span class="text-[#0077B6]">x</span> HealthCare
+        </h2>
+    </div>
+
+    <!-- Cards Section -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 max-w-6xl mx-auto">
+        <div class="text-center">
+            <img src={% static "assets/mission.png" %} alt="Mission" class="w-20 mx-auto" loading="lazy">
+            <h3 class="text-xl font-bold mt-4">Mission</h3>
+            <p class="text-gray-600 text-lg mt-2">
+                Our mission is to empower healthcare organizations with seamless solutions, enhancing patient care, operational efficiency, and data-driven decision-making
+            </p>
+        </div>
+        <div class="text-center">
+            <img src={% static "assets/visionary.png"%} alt="vision" class="w-20 mx-auto" loading="lazy">
+            <h3 class="text-xl font-bold mt-4">Vision</h3>
+            <p class="text-gray-600 text-lg mt-2">
+                We envision a future where advanced technology bridges the gap between healthcare providers and patients, ensuring quality service,  accurate diagnostics, and improved medical outcomes
+            </p>
+        </div>
+        <div class="text-center">
+            <img src={% static "assets/report.png" %} alt="Mission" class="w-20 mx-auto" loading="lazy">
+            <h3 class="text-xl font-bold mt-4">HIPAA Complaint</h3>
+            <p class="text-gray-600 text-lg mt-2">
+                Our platform adheres to the latest HIPAA regulations, ensuring patient data privacy, secure transactions, and compliance with industry standards
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Industries We Serve -->
+{% include 'IndustriesComponent.html' %}
+
+<!-- Why Choose Us -->
+{% include 'BenefitComponent.html' %}
+
+<!-- Contact Section -->
+{% include 'ContactComponent.html' %}
+
+{% endblock content %}

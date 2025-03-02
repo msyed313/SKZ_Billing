@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+{% include 'TitleComponent.html' with name="Revenue Cycle Management" %}
+
+{% include 'ServiceComponent.html' with data=features name="Full-Cycle Revenue Cycle Management (RCM)" desc="We manage every step of the revenue cycle, ensuring optimized cash flow for your practice" %}
+
+{% include 'ContactComponent.html' %}
+
+{% endblock content %}

@@ -1,0 +1,117 @@
+{% load static tailwind_tags %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="{% static 'img/logo.png' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKZ Medical Billing</title>
+    <!-- Bootstrap CSS -->
+    {% comment %} <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"> {% endcomment %}
+    {% tailwind_css %}
+</head>
+
+<body>
+
+<header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center p-4">
+        <!-- Logo -->
+        <a href="/home" class="flex gap-2 text-xl font-bold text-gray-800 items-center">
+            <img src="{% static 'assets/logo.png' %}" class="w-10" alt="Logo" loading="lazy" />
+            <p>SKZ Medical Billing</p>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex space-x-6 text-gray-600 items-center">
+            <a href="/home" class="hover:text-blue-800 font-semibold text-xl">Home</a>
+            <a href="/about-us" class="hover:text-blue-800 font-semibold text-xl">About Us</a>
+
+            <!-- Services Dropdown -->
+<div class="relative group">
+    <a href="/services" class="hover:text-blue-800 font-semibold text-xl">Services</a>
+
+    <!-- Dropdown Menu -->
+    <div id="dropdown-menu" class="absolute left-0 mt-7 w-64 bg-white shadow-lg rounded-md p-2 opacity-0 invisible transition-all duration-500 delay-200 transform scale-95 group-hover:opacity-100 group-hover:visible group-hover:scale-100">
+        <a href="/services/rcm" class="block px-4 py-2 text-lg font-semibold hover:text-blue-800 rounded-md">
+            Revenue Cycle Management
+        </a>
+        <a href="/services/credentialing" class="block px-4 py-2 text-lg font-semibold hover:text-blue-800 rounded-md">
+            Credentialing
+        </a>
+        <a href="/services/medical-coding" class="block px-4 py-2 text-lg font-semibold hover:text-blue-800 rounded-md">
+            Medical Coding
+        </a>
+        <a href="/services/billing" class="block px-4 py-2 text-lg font-semibold hover:text-blue-800 rounded-md">
+            Billing & Follow-Up Services
+        </a>
+        <a href="/services/compliance-report" class="block px-4 py-2 text-lg font-semibold hover:text-blue-800 rounded-md">
+            Compliance and Reporting
+        </a>
+        <a href="/services/dental" class="block px-4 py-2 text-lg font-semibold hover:text-blue-800 rounded-md">
+            Dental
+        </a>
+    </div>
+</div>
+
+
+            <a href="/contact">
+                <button class="bg-[#0097B2] hover:bg-[#006080] font-semibold text-xl text-white px-4 py-2 rounded-md cursor-pointer">
+                    Contact Us
+                </button>
+            </a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button class="md:hidden bg-[#0097B2] hover:bg-[#006080] p-2 rounded-md" onclick="toggleMenu()">
+            <img id="menu-icon" src="{% static 'assets/menu.png' %}" class="w-6" alt="Menu" loading="lazy" />
+        </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden bg-white shadow-md py-4 hidden">
+        <nav class="flex flex-col px-6 space-y-4">
+            <a class="text-lg font-semibold" href="/home" onclick="toggleMenu()">Home</a>
+            <a class="text-lg font-semibold" href="/about-us" onclick="toggleMenu()">About Us</a>
+
+            <!-- Mobile Services Dropdown -->
+            <p class="text-lg font-semibold" onclick="toggleMobileDropdown()">Services</p>
+
+            <div id="mobile-dropdown" class="hidden ml-6 p-2">
+                <a href="/services/rcm" onclick="toggleMenu()" class="block px-4 py-2 font-semibold">Revenue Cycle Management</a>
+                <a href="/services/credentialing" onclick="toggleMenu()" class="block px-4 py-2 font-semibold">Credentialing</a>
+                <a href="/services/medical-coding" onclick="toggleMenu()" class="block px-4 py-2 font-semibold">Medical Coding</a>
+                <a href="/services/billing" onclick="toggleMenu()" class="block px-4 py-2 font-semibold">Billing and Follow-Up Services</a>
+                <a href="/services/compliance-report" onclick="toggleMenu()" class="block px-4 py-2 font-semibold">Compliance and Reporting</a>
+                <a href="/services/dental" onclick="toggleMenu()" class="block px-4 py-2 font-semibold">Dental</a>
+            </div>
+
+            <a href="/contact" onclick="toggleMenu()">
+                <button class="bg-[#0097B2] hover:bg-[#006080] text-lg font-semibold text-white px-4 py-2 rounded-md">
+                    Contact Us
+                </button>
+            </a>
+        </nav>
+    </div>
+</header>
+
+<script>
+    function toggleDropdown(show) {
+        document.getElementById('dropdown-menu').style.display = show ? 'block' : 'none';
+    }
+
+    function toggleMenu() {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+    }
+
+    function toggleMobileDropdown() {
+        const dropdown = document.getElementById('mobile-dropdown');
+        dropdown.classList.toggle('hidden');
+    }
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+{% include 'TitleComponent.html' with name="Dental" %}
+
+{% include 'ServiceComponent.html' with data=features name="Dental Services" desc="Our expert team ensures accurate, timely reimbursements, helping dental practices focus on patient care instead of paperwork" %}
+
+
+{% include 'ContactComponent.html' %}
+
+{% endblock content %}

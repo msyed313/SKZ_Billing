@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+{% include 'TitleComponent.html' with name="Billing & Follow Up Services" %}
+
+{% include 'ServiceComponent.html' with data=features name="Billing & Follow Up" desc="Ensure that your practice gets paid in full and on time with our complete billing and follow-up services" %}
+
+{% include 'ContactComponent.html' %}
+
+{% endblock content %}

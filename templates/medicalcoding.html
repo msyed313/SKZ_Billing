@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+{% include 'TitleComponent.html' with name="Medical Coding" %}
+
+{% include 'ServiceComponent.html' with data=features name="Medical Coding" desc="Accurate coding is crucial for ensuring proper reimbursement and compliance" %}
+
+{% include 'ContactComponent.html' %}
+
+{% endblock content %}

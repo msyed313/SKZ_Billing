@@ -1,0 +1,65 @@
+{% load static tailwind_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    {% tailwind_css %}
+    <style>
+        /* Background Image with Overlay */
+        body {
+            background: url("{% static 'assets/background.jpg' %}") center/cover no-repeat;
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* Gradient Overlay */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom right, rgba(74, 144, 226, 0.7), rgba(160, 96, 238, 0.7));
+            z-index: -1;
+        }
+
+        /* Smooth Floating Animation for the Logo */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .logo {
+            animation: float 2.5s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div id="welcomeScreen">
+        <img src="{% static 'assets/logo.png' %}" alt="Logo" 
+            class="logo mx-auto max-w-80 rounded-2xl shadow-2xl shadow-white" loading="lazy" />
+        
+        <h1 class="text-white lg:text-5xl md:text-3xl text-xl font-bold mt-3">Welcome to SKZ Medical Billing</h1>
+        <p class="text-lg font-semibold text-gray-200 mt-3">Get ready for an amazing experience 🚀</p>
+    </div>
+
+    <script>
+        // Auto-navigate after 3 seconds
+        setTimeout(() => {
+            document.getElementById("welcomeScreen").classList.add("fade-out");
+            setTimeout(() => {
+                window.location.href = "/home"; // Change '/home' to your desired URL
+            }, 1000); // Wait for fade-out animation before navigating
+        }, 3000);
+    </script>
+</body>
+</html>

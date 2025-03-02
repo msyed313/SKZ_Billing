@@ -1,0 +1,24 @@
+{% load static %}
+
+<section class="bg-gray-100 py-12 px-6 md:px-12 lg:px-20">
+    <div class="max-w-6xl mx-auto text-center">
+        <h2 class="text-3xl font-bold text-gray-800 mb-4">{{ name }}</h2>
+        <p class="text-gray-600 text-lg">{{ desc }}</p>
+
+        <!-- Key Benefits -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+            {% for item in data %}
+                <div class="p-6 bg-white shadow-lg rounded-lg hover:shadow-2xl transition-all">
+                    <h3 class="text-xl font-semibold text-[#0097B2]">{{ item.title }}</h3>
+                    <p class="text-gray-600 mt-2">{{ item.desc }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        <!-- Call to Action -->
+        <div class="mt-10">
+            <a href="/contact" class="bg-[#0097B2] hover:bg-[#006080] cursor-pointer text-white py-3 px-6 rounded-lg text-lg font-semibold transition duration-300">
+                Get Started Today
+            </a>
+        </div>
+    </div>
+</section>

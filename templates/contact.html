@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+{% include 'TitleComponent.html' with name="Contact" %}
+
+<section class="py-12 px-6 bg-[#F5F7FA]">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        {% for item in data %}
+            <div class="bg-white shadow-lg rounded-2xl p-6 text-center flex flex-col items-center">
+                <div class="bg-gray-100 w-20 rounded-full p-4 flex items-center justify-center">
+                    <img src="{% static item.icon %}" class="w-full" />
+                </div>
+                <h3 class="text-xl font-semibold mt-4">{{ item.title }}</h3>
+                <a href="{{ item.ref }}" class="text-[#0097B2] hover:text-[#006080] mt-2">
+                    {{ item.content }}
+                </a>
+            </div>
+        {% endfor %}
+        <pre>{{contactDetails}}</pre>
+    </div> 
+</section>
+
+
+<section class="flex justify-center items-center min-h-screen bg-gray-100 px-4">
+    <div class=" p-8 max-w-4xl w-full">
+        {% comment %} {/* Header */} {% endcomment %}
+        <div class="text-center mb-6">
+            <button class="bg-[#0097B2] text-white px-6 py-2 rounded-full text-xl font-semibold">
+                Appointment Now
+            </button>
+            <h2 class="text-3xl font-bold text-[#0097B2] mt-4">Free Consultation</h2>
+            <h3 class="text-lg font-semibold text-gray-800 mt-2">Schedule an Appointment</h3>
+            <p class="text-gray-600 mt-2">
+                Interested in learning more about our services? Reach out to us below!
+            </p>
+        </div>
+
+        {% comment %} {/* Form */} {% endcomment %}
+        <form  action="contact/appointment-request" onSubmit="return validateForm(event)" id="contactForm" method="POST" class="grid grid-cols-1 gap-4 md:grid-cols-2">
+            {% csrf_token %}
+        
+            <!-- First Name -->
+            <div>
+                <label class="block font-medium">First Name<span class="text-red-600">*</span></label>
+                <input type="text" name="firstName" id="firstName" class="w-full p-2 border rounded" />
+                <p id="firstNameError" class="text-red-500 text-sm"></p>
+            </div>
+        
+            <!-- Last Name -->
+            <div>
+                <label class="block font-medium">Last Name<span class="text-red-600">*</span></label>
+                <input type="text" name="lastName" id="lastName" class="w-full p-2 border rounded" />
+                <p id="lastNameError" class="text-red-500 text-sm"></p>
+            </div>
+        
+            <!-- Email -->
+            <div>
+                <label class="block font-medium">Email<span class="text-red-600">*</span></label>
+                <input type="email" name="email" id="email" class="w-full p-2 border rounded" />
+                <p id="emailError" class="text-red-500 text-sm"></p>
+            </div>
+        
+            <!-- Phone -->
+            <div>
+                <label class="block font-medium">Phone Number<span class="text-red-600">*</span></label>
+                <input type="text" name="phone" id="phone" class="w-full p-2 border rounded" />
+                <p id="phoneError" class="text-red-500 text-sm"></p>
+            </div>
+        
+            <!-- Services (Dropdown) -->
+            <div>
+                <label class="block font-medium">Select a Service<span class="text-red-600">*</span></label>
+                <select name="service" id="service" class="w-full p-2 border rounded">
+                    <option value="">-- Select Service --</option>
+                    <option value="RCM">RCM</option>
+                    <option value="Credentialing">Credentialing</option>
+                    <option value="Medical Coding">Medical Coding</option>
+                    <option value="Biling & Follow-Up Services">Biling & Follow-Up Services</option>
+                    <option value="Compliance & Reporting">Compliance & Reporting</option>
+                    <option value="Dental">Dental</option>
+                </select>
+                <p id="serviceError" class="text-red-500 text-sm"></p>
+            </div>
+        
+            <!-- Message -->
+            <div class="md:col-span-2">
+                <label class="block font-medium">Message</label>
+                <textarea name="message" id="message" rows="4" class="w-full p-2 border rounded"></textarea>
+            </div>
+        
+            <!-- Submit Button -->
+            <div class="md:col-span-2 flex justify-center">
+                <button type="submit" class="bg-[#0097B2] cursor-pointer text-white px-8 py-2 rounded-full text-xl font-semibold w-full md:w-auto">
+                    Submit
+                </button>
+            </div>
+        </form>
+         
+    </div>
+</section>
+
+<script>
+    function validateForm(event) {
+        event.preventDefault(); // Prevent form submission
+    
+        let isValid = true;
+    
+        // Get form values
+        let firstName = document.getElementById("firstName").value.trim();
+        let lastName = document.getElementById("lastName").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let phone = document.getElementById("phone").value.trim();
+        let service = document.getElementById("service").value.trim();
+    
+        // Clear previous error messages
+        document.getElementById("firstNameError").innerText = "";
+        document.getElementById("lastNameError").innerText = "";
+        document.getElementById("emailError").innerText = "";
+        document.getElementById("phoneError").innerText = "";
+        document.getElementById("serviceError").innerText = "";
+    
+        // Validate First Name
+        if (firstName === "") {
+            document.getElementById("firstNameError").innerText = "First name is required.";
+            isValid = false;
+        } else if (firstName.length < 2) {
+            document.getElementById("firstNameError").innerText = "First name must be at least 2 characters.";
+            isValid = false;
+        }
+    
+        // Validate Last Name
+        if (lastName === "") {
+            document.getElementById("lastNameError").innerText = "Last name is required.";
+            isValid = false;
+        }
+    
+        // Validate Email
+        if (email === "") {
+            document.getElementById("emailError").innerText = "Email is required.";
+            isValid = false;
+        } else if (!/\S+@\S+\.\S+/.test(email)) {
+            document.getElementById("emailError").innerText = "Enter a valid email address.";
+            isValid = false;
+        }
+    
+        // Validate Phone Number
+        if (phone === "") {
+            document.getElementById("phoneError").innerText = "Phone number is required.";
+            isValid = false;
+        } else if (!/^\d{10,15}$/.test(phone)) {
+            document.getElementById("phoneError").innerText = "Phone number must be 10-15 digits.";
+            isValid = false;
+        }
+    
+        // Validate Service
+        if (service === "") {
+            document.getElementById("serviceError").innerText = "Please select a service.";
+            isValid = false;
+        }
+    
+        // If the form is valid, submit it
+        if (isValid) {
+            document.getElementById("contactForm").submit();
+        }
+    }
+    </script>
+    
+    
+
+{% endblock content %}

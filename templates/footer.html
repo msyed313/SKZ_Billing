@@ -1,0 +1,59 @@
+{% load static %}
+<footer class="text-gray-700 py-10 px-6">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Company Info -->
+        <div class="flex flex-col md:items-start md:text-left">
+            <img src="{% static 'assets/logo.png' %}" alt="Company Logo" class="w-32 h-auto mb-4" loading="lazy"/>
+            <p class="text-lg text-justify leading-relaxed">
+                We prioritize accuracy, efficiency, and customized solutions, ensuring your practice thrives while you focus on providing outstanding patient care.
+            </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="flex flex-col md:items-center">
+            <h3 class="font-semibold text-2xl mb-3">Quick Links</h3>
+            <ul class="space-y-2">
+                <li><a href="/home" class="hover:text-blue-600 transition text-lg">Home</a></li>
+                <li><a href="/about" class="hover:text-blue-600 transition text-lg">About Us</a></li>
+                <li><a href="/services" class="hover:text-blue-600 transition text-lg">Services</a></li>
+                <li><a href="/contact" class="hover:text-blue-600 transition text-lg">Contact Us</a></li>
+                <li><a href="/privacy-policy" class="hover:text-blue-600 transition text-lg">Privacy Policy</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="flex flex-col md:items-start">
+            <h3 class="font-semibold text-2xl mb-3">Contact</h3>
+            <a href="https://www.google.com/maps/search/?api=1&query=5729+Savoy+Dr,+Houston,+TX+77036"
+                target="_blank" rel="noopener noreferrer" class="text-[#0097B2] hover:text-[#006080]">
+                <p class="my-2">5729 Savoy Dr, Houston, TX 77036</p>
+            </a>
+
+            <a href="tel:+14697336551" class="text-[#0097B2] hover:text-[#006080]">
+                <p class="my-2">📞 (469) 733-6551</p>
+            </a>
+
+            <a href="mailto:skzmedicalbilling@gmail.com" class="text-[#0097B2] hover:text-[#006080]">
+                <p class="my-2">✉️ skzmedicalbilling@gmail.com</p>
+            </a>
+
+            <!-- Social Icons -->
+            <div class="flex space-x-4 mt-4">
+                <a href="https://www.facebook.com/profile.php?id=61573605331351" class="transition-transform hover:scale-110">
+                    <img src="{% static 'assets/facebook.png' %}" alt="Facebook" class="w-8 h-8" loading="lazy"/>
+                </a>
+                <a href="https://www.linkedin.com/in/skz-billing-9b5352353/" class="transition-transform hover:scale-110">
+                    <img src="{% static 'assets/linkedin.png' %}" alt="LinkedIn" class="w-8 h-8" loading="lazy"/>
+                </a>
+                <a href="https://www.instagram.com/skzmedbilling/" class="transition-transform hover:scale-110">
+                    <img src="{% static 'assets/instagram.png' %}" alt="Instagram" class="w-8 h-8" loading="lazy"/>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-center text-lg text-gray-500 mt-8 border-t pt-4">
+        Copyright © {{ year }} | All Rights Reserved.
+    </div>
+</footer>

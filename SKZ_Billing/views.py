@@ -244,7 +244,10 @@ def appointment_request(request):
             html_message=body  # ✅ Send HTML email
         )
         
-        return HttpResponse("Form submitted successfully. Email Sent!")
+        return render(request, 'contact.html', {'success': "Your request has been submitted successfully!"})
+
 
     return render(request, 'contact.html')
 
+def privacy_policy(request):
+    return render(request,'privacy-policy.html')

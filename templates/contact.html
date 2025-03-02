@@ -37,6 +37,13 @@
                 Interested in learning more about our services? Reach out to us below!
             </p>
         </div>
+        {% if success %}
+<div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+  <strong class="font-bold">Success!</strong>
+  <span class="block sm:inline">{{ success }}</span>
+</div>
+{% endif %}
+
 
         {% comment %} {/* Form */} {% endcomment %}
         <form  action="contact/appointment-request" onSubmit="return validateForm(event)" id="contactForm" method="POST" class="grid grid-cols-1 gap-4 md:grid-cols-2">

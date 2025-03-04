@@ -1,14 +1,15 @@
 {% load static tailwind_tags %}
-
+{% load  static  %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{% static 'assets/logo.png' %}">
     <title>Welcome</title>
     {% tailwind_css %}
     <style>
-        /* Background Image with Overlay */
+        {% comment %} Background Image with Overlay  {% endcomment %}
         body {
             background: url("{% static 'assets/background.jpg' %}") center/cover no-repeat;
             position: relative;
@@ -20,7 +21,7 @@
             overflow: hidden;
         }
 
-        /* Gradient Overlay */
+         {% comment %} Gradient Overlay  {% endcomment %}
         body::before {
             content: "";
             position: absolute;
@@ -32,7 +33,7 @@
             z-index: -1;
         }
 
-        /* Smooth Floating Animation for the Logo */
+         {% comment %} Smooth Floating Animation for the Logo  {% endcomment %}
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }

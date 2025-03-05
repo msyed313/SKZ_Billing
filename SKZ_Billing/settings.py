@@ -12,8 +12,10 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -135,6 +137,15 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'designerhub455@gmail.com'
-EMAIL_HOST_PASSWORD = 'cuvi gyjv qhtl vxof'
+EMAIL_HOST_USER = 'skzmedicalbilling@gmail.com'
+EMAIL_HOST_PASSWORD = 'pzhj cmir lalj yhxa'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtpout.secureserver.net'  # GoDaddy SMTP server
+# EMAIL_PORT = 465  # SSL port (or use 587 for TLS)
+# EMAIL_USE_SSL = True  # Use SSL
+# EMAIL_USE_TLS = False  # TLS should be False if using SSL
+# EMAIL_HOST_USER = 'info@skzrcm.com'  # Replace with your GoDaddy email
+# EMAIL_HOST_PASSWORD = 'Bill@2040@ing'  # Use your GoDaddy email password
+# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

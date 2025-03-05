@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.core.mail import send_mail
-
+from django.http import JsonResponse
 def welcome(request):
     return render(request,'welcome.html')
 
@@ -148,8 +148,8 @@ def contact_view(request):
         {
             "icon": "assets/email.png",
             "title": "Email Us",
-            "content": "skzmedicalbilling@gmail.com",
-            "ref": "mailto:skzmedicalbilling@gmail.com"
+            "content": "info@skzrcm.com",
+            "ref": "mailto:info@skzrcm.com"
         },
         {
             "icon": "assets/telephone.png",
@@ -235,18 +235,19 @@ def appointment_request(request):
         """
 
         # Send Email
-        send_mail(
-            subject,
-            "",  # Plain text body (optional)
-            email,  # Sender Email
-            ['designerhub455@gmail.com'],  # Receiver Email (Admin email)
-            fail_silently=False,
-            html_message=body  # ✅ Send HTML email
-        )
+        try:
+            send_mail(
+                subject,
+                "",  # Plain text body (optional)
+                email,  # Sender Email
+                ['info@skzrcm.com'],  # Receiver Email (Admin email)
+                fail_silently=False,
+                html_message=body  # ✅ Send HTML email
+            )
+            return render(request, 'contact.html', {'success': "Your request has been submitted successfully!"})
         
-        return render(request, 'contact.html', {'success': "Your request has been submitted successfully!"})
-
-
+        except Exception as e:
+            return render(request, 'contact.html', {'failed': "Some internal error! Please try again later."})
     return render(request, 'contact.html')
 
 def privacy_policy(request):

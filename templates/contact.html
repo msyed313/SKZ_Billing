@@ -10,15 +10,23 @@
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         {% for item in data %}
         
-        <div class="bg-white shadow-lg rounded-2xl p-6 text-center flex flex-col items-center group transition-transform duration-500">
-            <div class="bg-gray-100 w-20 rounded-full p-4 flex items-center justify-center">
+        <div class="bg-white shadow-lg rounded-2xl p-6 text-center flex flex-col items-center group transition-all duration-500 transform hover:scale-105 hover:shadow-2xl hover:border hover:border-[#0097B2] border-transparent">
+            <!-- Icon Container -->
+            <div class="bg-gradient-to-b from-gray-200 to-gray-50 w-20 rounded-full p-4 flex items-center justify-center transition-all duration-500 group-hover:scale-110">
                 <img src="{% static item.icon %}" class="w-full" />
             </div>
-            <h3 class="text-xl font-semibold mt-4">{{ item.title }}</h3>
-            <a href="{{ item.ref }}" class="text-[#0097B2] hover:text-[#006080] mt-2">
+        
+            <!-- Title -->
+            <h3 class="text-xl font-semibold mt-4 transition-all duration-500 group-hover:text-[#0097B2]">
+                {{ item.title }}
+            </h3>
+        
+            <!-- Link -->
+            <a href="{{ item.ref }}" class="text-[#0097B2] hover:text-[#006080] mt-2 transition-all duration-500 group-hover:underline">
                 {{ item.content }}
             </a>
         </div>
+        
         
         {% endfor %}
     </div> 
@@ -44,7 +52,12 @@
   <span class="block sm:inline">{{ success }}</span>
   </div>
   {% endif %}
-
+  {% if failed %}
+  <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+ <strong class="font-bold">Error!</strong>
+ <span class="block sm:inline">{{ failed }}</span>
+ </div>
+ {% endif %}
 
         {% comment %} {/* Form */} {% endcomment %}
         <form  action="contact/appointment-request" onSubmit="return validateForm(event)" id="contactForm" method="POST" class="grid grid-cols-1 gap-4 md:grid-cols-2">

@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-v09%fh%3w$g)+9xinuwl!*1pf_-*%a(v57)h1)5_+9)pb#e@=#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['skzrcm.com', 'www.skzrcm.com']
 
 
 # Application definition
@@ -141,11 +141,3 @@ EMAIL_HOST_USER = 'skzmedicalbilling@gmail.com'
 EMAIL_HOST_PASSWORD = 'pzhj cmir lalj yhxa'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtpout.secureserver.net'  # GoDaddy SMTP server
-# EMAIL_PORT = 465  # SSL port (or use 587 for TLS)
-# EMAIL_USE_SSL = True  # Use SSL
-# EMAIL_USE_TLS = False  # TLS should be False if using SSL
-# EMAIL_HOST_USER = 'info@skzrcm.com'  # Replace with your GoDaddy email
-# EMAIL_HOST_PASSWORD = 'Bill@2040@ing'  # Use your GoDaddy email password
-# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

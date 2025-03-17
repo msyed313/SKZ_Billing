@@ -33,4 +33,6 @@ urlpatterns = [
     path('contact', views.contact_view),
     path('contact/appointment-request',views.appointment_request),
     path('privacy-policy',views.privacy_policy),
+
+    #  path("__reload__/", include("django_browser_reload.urls")),
 ]

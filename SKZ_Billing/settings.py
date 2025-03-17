@@ -26,8 +26,7 @@ SECRET_KEY = 'django-insecure-v09%fh%3w$g)+9xinuwl!*1pf_-*%a(v57)h1)5_+9)pb#e@=#
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-
-ALLOWED_HOSTS = ['skzrcm.com', 'www.skzrcm.com']
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 
 
 # Application definition
@@ -39,15 +38,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "whitenoise.runserver_nostatic",
     'tailwind',
     'theme',
     'django_browser_reload',
 ]
 TAILWIND_APP_NAME='theme'
-INTERNAL_IPS=['127.0.0.1']
+# INTERNAL_IPS=['127.0.0.1']
 NPM_BIN_PATH =r"C:\Program Files\nodejs\npm.cmd"
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -128,6 +129,9 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),  # Ensure your static folder is properly configured
 ]
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 

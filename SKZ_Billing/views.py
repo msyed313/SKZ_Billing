@@ -158,50 +158,9 @@ def contact_view(request):
             "ref": "tel:+14697336551"
         },
     ]
-    if request.method == "POST":
-        form_data = {
-            "first_name": request.POST.get("first_name", "").strip(),
-            "last_name": request.POST.get("last_name", "").strip(),
-            "email": request.POST.get("email", "").strip(),
-            "phone": request.POST.get("phone", "").strip(),
-            "service": request.POST.get("service", "").strip(),
-            "message": request.POST.get("message", "").strip(),
-        }
+    return render(request, "contact.html")
 
-        # ✅ First Name Validation
-        if not form_data["first_name"]:
-            errors["first_name"] = "First name is required."
-        elif len(form_data["first_name"]) < 2:
-            errors["first_name"] = "First name must be at least 2 characters."
-
-        # ✅ Last Name Validation
-        if not form_data["last_name"]:
-            errors["last_name"] = "Last name is required."
-
-        # ✅ Email Validation
-        if not form_data["email"]:
-            errors["email"] = "Email is required."
-        elif "@" not in form_data["email"]:
-            errors["email"] = "Enter a valid email address."
-
-        # ✅ Phone Number Validation
-        if not form_data["phone"]:
-            errors["phone"] = "Phone number is required."
-        elif not form_data["phone"].isdigit():
-            errors["phone"] = "Phone number must contain only digits."
-
-        # ✅ Service Selection Validation
-        if not form_data["service"]:
-            errors["service"] = "Please select a service."
-
-        if not errors:
-            # ✅ Form is valid, process the data (e.g., save to DB)
-            return render(request, "contact_success.html", {"form_data": form_data})
-        
-
-    return render(request, "contact.html", {'data': contactDetails,"errors": errors, "form_data": form_data})
-
-
+from django.conf import settings
 
 def appointment_request(request):
     if request.method == 'POST':
@@ -244,10 +203,10 @@ def appointment_request(request):
                 fail_silently=False,
                 html_message=body  # ✅ Send HTML email
             )
-            return render(request, 'contact.html', {'success': "Your request has been submitted successfully!"})
+            return render(request, 'contact.html', {'success': "internal server error send us query on mail"})
         
         except Exception as e:
-            return render(request, 'contact.html', {'failed': "Some internal error! Please try again later."})
+            return render(request, 'contact.html', {'failed': e})
     return render(request, 'contact.html')
 
 def privacy_policy(request):

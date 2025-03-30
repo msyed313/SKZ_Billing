@@ -25,10 +25,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-v09%fh%3w$g)+9xinuwl!*1pf_-*%a(v57)h1)5_+9)pb#e@=#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = False
-# ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 DEBUG = False
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", ".up.railway.app"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 
 
 # Application definition
@@ -140,10 +138,11 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'skzmedicalbilling@gmail.com'
-EMAIL_HOST_PASSWORD = 'pzhj cmir lalj yhxa'
+EMAIL_HOST = 'smtpout.secureserver.net'
+EMAIL_PORT = 465  # Use 587 if 465 doesn't work
+EMAIL_USE_TLS = False  # Use False for 465, True for 587
+EMAIL_USE_SSL = True  # Required for port 465
+EMAIL_HOST_USER = 'info@skzrcm.com'  # Your GoDaddy email
+EMAIL_HOST_PASSWORD = 'Bill@2040@ing'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
